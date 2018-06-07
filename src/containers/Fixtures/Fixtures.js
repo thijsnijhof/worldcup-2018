@@ -33,7 +33,11 @@ const styles = {
 class Fixtures extends React.Component {
     state = {
         groups: {},
+<<<<<<< HEAD:src/components/Fixtures.js
         teams:{}
+=======
+        teams: []
+>>>>>>> 35229ad635c11cb06277320a0f62fb08b71c430d:src/containers/Fixtures/Fixtures.js
     };
 
     //Fetch data from json and put it into an object
@@ -41,7 +45,11 @@ class Fixtures extends React.Component {
         fetch('https://raw.githubusercontent.com/lsv/fifa-worldcup-2018/master/data.json')
             .then(res => res.json())
             .then(data => {
+<<<<<<< HEAD:src/components/Fixtures.js
                 this.setState({groups: data.groups,teams:data.teams,})
+=======
+                this.setState({groups: data.groups, teams: data.teams})
+>>>>>>> 35229ad635c11cb06277320a0f62fb08b71c430d:src/containers/Fixtures/Fixtures.js
             })
     }
 
@@ -55,10 +63,15 @@ class Fixtures extends React.Component {
 
 
     render() {
+<<<<<<< HEAD:src/components/Fixtures.js
         const {groups} = this.state;
         const {teams} = this.state;
+=======
+        const {groups, teams} = this.state;
+>>>>>>> 35229ad635c11cb06277320a0f62fb08b71c430d:src/containers/Fixtures/Fixtures.js
         const {classes} = this.props;
         const groupnames = [];
+
         // Loop through the groups object from state
         // Then push the value and the matches into a new array to show the fixtures
         // We map them below to access their values
@@ -80,9 +93,16 @@ class Fixtures extends React.Component {
                             {groupname.groupname}
                         </Typography>
                         {groupname.matches.map((match, key) => {
+<<<<<<< HEAD:src/components/Fixtures.js
                             console.log(getTeam(teams))
+=======
+
+                           let home_team = teams.filter(team => team.id===match.home_team);
+                           let away_team = teams.filter(team => team.id===match.away_team);
+
+>>>>>>> 35229ad635c11cb06277320a0f62fb08b71c430d:src/containers/Fixtures/Fixtures.js
                             return (
-                                <p id={key}>{match.home_team} - {match.away_team}</p>);
+                                <p key={key} id={key}>{home_team[0].name} - {away_team[0].name}</p>);
                             })
                         }
                     </CardContent>
